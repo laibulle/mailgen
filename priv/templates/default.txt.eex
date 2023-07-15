@@ -1,0 +1,46 @@
+<%= title %>
+
+<br />
+<br />
+
+<%= for intro_item <- intro do %>
+<%= intro_item %>
+<br />
+<% end %>
+
+<br />
+
+<%= for {k, v} <- dictionary do %>
+<%= String.Casing.titlecase_once(k, nil) %>: <%= v %>
+<br />
+<% end %>
+
+<br />
+
+<%= for action_item <- action do %>
+<%= action_item.instructions %>
+<br />
+<%= for action_button <- action_item.button do %>
+<%= action_button.link %>
+<br />
+<% end %>
+<br />
+<% end %>
+
+<%= for outro_item <- outro do %>
+<%= outro_item %>
+<br />
+<% end %>
+
+<br />
+
+<%= if signature do %>
+<%= signature %>,
+<br />
+<%= product.name %>
+<% end %>
+
+<br />
+<br />
+
+© <%= DateTime.utc_now.year %> <%= product.name %>. All rights reserved.
